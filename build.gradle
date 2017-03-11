@@ -1,0 +1,8 @@
+subprojects {
+  apply plugin: 'java'
+}
+
+project(':hoge') {
+}
+project(':fuga') {
+}
