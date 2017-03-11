@@ -21,3 +21,8 @@ if [ -e ./gradlew ]; then ./gradlew test;else gradle test;fi
 これで *Test Summary* タブにテストの件数と落ちたテストの`testsuite.testcase.failure`が出力されるようになる。
 あくまでサマリ表示用。
 
+### 成果物の収集
+
+`general.artifacts`に`/home/ubuntu/{base_dir}`以下の相対パスを記述すると、ディレクトリそのまま持っていってくれる。
+GradleのテストレポートはCSSとかもまとめて欲しいので。
+
