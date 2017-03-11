@@ -26,3 +26,14 @@ if [ -e ./gradlew ]; then ./gradlew test;else gradle test;fi
 `general.artifacts`に`/home/ubuntu/{base_dir}`以下の相対パスを記述すると、ディレクトリそのまま持っていってくれる。
 GradleのテストレポートはCSSとかもまとめて欲しいので。
 
+### 依存の解決
+
+`dependencies.override`で依存解決のコマンドを上書き。
+デフォルトで`gradle dependencies`が実行されるが、これは依存ツリーを表示するためのもので、`*.pom`しかダウンロードしてこない。
+次の`database`セクションでキャッシュの保存が行われ、`/home/ubuntu/.gradle`を維持してくれるのだけれど、これではあまりに効果が薄い。
+また、このリポジトリのようにマルチプロジェクト構成だと何も起こらない。
+
+全てのキャッシュしようと思ったら`build`までしないと`runtime`やレポートでしか使わないものは入らないのだが、それをここでやっちゃうのはちょっと微妙。
+なので、現実的な落としどころとして`testClasses`あたりにしておく。
+
+
