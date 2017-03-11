@@ -2,6 +2,9 @@ general:
   artifacts:
     - "hoge/build/reports/tests"
     - "fuga/build/reports/tests"
+dependencies:
+  override:
+    - export TERM="dumb"; ./gradlew testClasses
 test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
