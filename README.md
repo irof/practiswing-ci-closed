@@ -3,7 +3,7 @@ PRACSWING-CI
 
 ## Circle CI
 
-[![CircleCI](https://circleci.com/gh/irof/practiswing-ci.svg?style=shield)](https://circleci.com/gh/irof/practiswing-ci)
+[![CircleCI](https://circleci.com/gh/irof/practiswing-ci.svg?style=shield&circle-token=a6a61e02339d067c28875d8b67c72cb9575ace09)](https://circleci.com/gh/irof/practiswing-ci)
 
 ### ビルド結果の収集
 
@@ -37,4 +37,15 @@ GradleのテストレポートはCSSとかもまとめて欲しいので。
 なので、現実的な落としどころとして`testClasses`あたりにしておく。
 
 なお、キャッシュはブランチ単位の模様。
+
+### badge
+
+`Notifications/Status Badges`でコードが生成できる。
+必要に応じて変更するとよい。
+
+`Build Settings/Advanced Settings/Free and Open Source`がONだったらトークンなくても表示できる。
+OFFだったら`circle-token`をパラメーターに指定してあげる必要がある。
+
+Free and Open Sourceはコンテナ3つ追加で使える（合計4つ）。
+OFFにしたらひとつになる。
 
