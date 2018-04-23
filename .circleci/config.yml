@@ -11,7 +11,7 @@ jobs:
       - save_cache:
           paths:
             - ~/.gradle
-          key: cache-{{ checksum "build.gralde" }}
+          key: cache-{{ checksum "build.gradle" }}
       - store_test_results:
           path: hoge/build/test-results
       - store_test_results:
