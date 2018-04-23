@@ -12,14 +12,6 @@ jobs:
           paths:
             - ~/.gradle
           key: cache-{{ checksum "build.gradle" }}
-      - store_test_results:
-          path: hoge/build/test-results
-      - store_test_results:
-          path: fuga/build/test-results
-      - store_artifacts:
-          path: hoge/build/reports/tests
-      - store_artifacts:
-          path: fuga/build/reports/tests
   jdk9:
     docker:
       - image: circleci/openjdk:9-jdk
@@ -32,10 +24,34 @@ jobs:
           paths:
             - ~/.gradle
           key: cache-{{ checksum "build.gradle" }}
+  jdk10:
+    docker:
+      - image: circleci/openjdk:10-jdk
+    steps:
+      - checkout
+      - restore_cache:
+          key: cache-{{ checksum "build.gradle" }}
+      - run: ./gradlew build
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: cache-{{ checksum "build.gradle" }}
+      - store_test_results:
+          path: hoge/build/test-results
+      - store_test_results:
+          path: fuga/build/test-results
+      - store_artifacts:
+          path: hoge/build/reports/tests
+      - store_artifacts:
+          path: fuga/build/reports/tests
 workflows:
   version: 2
   hoge:
     jobs:
       - jdk8
       - jdk9
+      - jdk10:
+        requires:
+          - jdk8
+          - jdk9
 
