@@ -23,6 +23,8 @@ jobs:
   jdk9:
     docker:
       - image: circleci/openjdk:9-jdk
+    steps:
+      - checkout
       - restore_cache:
           key: cache-{{ checksum "build.gradle" }}
       - run: ./gradlew build
