@@ -51,7 +51,7 @@ workflows:
       - jdk8
       - jdk9
       - jdk10:
-        requires:
-          - jdk8
-          - jdk9
+          requires:
+            - jdk8
+            - jdk9
 
