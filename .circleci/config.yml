@@ -1,0 +1,24 @@
+version: 2
+jobs:
+  hoge:
+    docker:
+      - image: circleci/openjdk:8-jdk
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          key: cache-{{ checksum "build.gradle" }}
+      - run: ./gradlew build
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: cache-{{ checksum "build.gralde" }}
+      - store_test_results:
+          path: hoge/build/test-results
+      - store_test_results:
+          path: fuga/build/test-results
+      - store_artifacts:
+          path: hoge/build/reports/tests
+      - store_artifacts:
+          path: fuga/build/reports/tests
+
