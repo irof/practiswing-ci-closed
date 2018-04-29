@@ -51,7 +51,7 @@ workflows:
       - jdk8:
           filter:
             tags:
-              ignore: /.*/
+              ignore: /[\d.]*/
   hoge:
     jobs:
       - jdk8:
