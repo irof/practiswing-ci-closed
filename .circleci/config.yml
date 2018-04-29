@@ -49,19 +49,19 @@ workflows:
   un-tagged-build:
     jobs:
       - jdk8:
-          filter:
+          filters:
             tags:
-              ignore: /[\d.]*/
-  hoge:
+              ignore: /.*/
+  tagged-build:
     jobs:
       - jdk8:
-          filter:
+          filters:
             branches:
               ignore: /.*/
             tags:
               only: /.*/
       - jdk9:
-          filter:
+          filters:
             branches:
               ignore: /.*/
             tags:
