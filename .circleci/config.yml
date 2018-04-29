@@ -1,4 +1,21 @@
 version: 2
+un-tagged-build:
+  jobs:
+    - build:
+        filters:
+          tags:
+            ignore: /^[\d\.]+/
+        docker:
+          - image: circleci/openjdk:8-jdk
+        steps:
+          - checkout
+          - restore_cache:
+              key: cache-{{ checksum "build.gradle" }}
+          - run: ./gradlew build
+          - save_cache:
+              paths:
+                - ~/.gradle
+              key: cache-{{ checksum "build.gradle" }}
 jobs:
   jdk8:
     docker:
@@ -49,7 +66,17 @@ workflows:
   hoge:
     jobs:
       - jdk8
+          filter:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /.*/
       - jdk9
+          filter:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /.*/
       - jdk10:
           requires:
             - jdk8
