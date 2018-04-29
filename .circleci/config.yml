@@ -59,7 +59,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /.*/
+              only: /.+/
       - jdk9:
           filters:
             branches:
