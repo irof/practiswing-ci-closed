@@ -52,6 +52,9 @@ workflows:
           filters:
             tags:
               ignore: /.*/
+      - jdk10:
+          requires:
+            - jdk8
   tagged-build:
     jobs:
       - jdk8:
