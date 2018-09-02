@@ -1,76 +1,28 @@
 version: 2
 jobs:
-  jdk8:
+  build:
     docker:
-      - image: circleci/openjdk:8-jdk
+      - image: circleci/openjdk:11-jdk
     steps:
       - checkout
+
       - restore_cache:
           key: cache-{{ checksum "build.gradle" }}
+
       - run: ./gradlew build
+
       - save_cache:
           paths:
             - ~/.gradle
           key: cache-{{ checksum "build.gradle" }}
-  jdk9:
-    docker:
-      - image: circleci/openjdk:9-jdk
-    steps:
-      - checkout
-      - restore_cache:
-          key: cache-{{ checksum "build.gradle" }}
-      - run: ./gradlew build
-      - save_cache:
-          paths:
-            - ~/.gradle
-          key: cache-{{ checksum "build.gradle" }}
-  jdk10:
-    docker:
-      - image: circleci/openjdk:10-jdk
-    steps:
-      - checkout
-      - restore_cache:
-          key: cache-{{ checksum "build.gradle" }}
-      - run: ./gradlew build
-      - save_cache:
-          paths:
-            - ~/.gradle
-          key: cache-{{ checksum "build.gradle" }}
+
       - store_test_results:
           path: hoge/build/test-results
       - store_test_results:
           path: fuga/build/test-results
+
       - store_artifacts:
           path: hoge/build/reports/tests
       - store_artifacts:
           path: fuga/build/reports/tests
-workflows:
-  version: 2
-  un-tagged-build:
-    jobs:
-      - jdk8:
-          filters:
-            tags:
-              ignore: /.*/
-      - jdk10:
-          requires:
-            - jdk8
-  tagged-build:
-    jobs:
-      - jdk8:
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /.+/
-      - jdk9:
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /.*/
-      - jdk10:
-          requires:
-            - jdk8
-            - jdk9
 
