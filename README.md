@@ -6,6 +6,23 @@ PRACSWING-CI
 `.circleci/config.yml` に記述。
 
 
+### GitHubにpush
+
+デフォルトのSSHキーはRead Onlyになっているので、そのままだとpushできない。
+
+別の秘密鍵を作成し、GitHubとCircleCIにそれぞれ登録する。
+
+- GitHub
+  - `Settings/Deploy keys`
+    - `Add deploy key` から `Arrow write access` を選択して公開鍵を登録。
+    - 自動登録されたReadOnlyの鍵は削除する。
+- CircleCI
+  - `Permissions / SSH Permissions`
+    - `Add SSH Key` からHostnameは `github.com` として秘密鍵を登録。
+  - `Permissions / Checkout SSH keys`
+    - 自動登録されたdeploy keyを削除する。
+      - これを削除しないと登録したものが使用されない。
+
 ### badge
 
 [![CircleCI](https://circleci.com/gh/irof/practiswing-ci.svg?style=svg)](https://circleci.com/gh/irof/practiswing-ci)
