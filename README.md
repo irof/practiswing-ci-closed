@@ -23,6 +23,9 @@ PRACSWING-CI
     - 自動登録されたdeploy keyを削除する。
       - これを削除しないと登録したものが使用されない。
 
+もしくは [`add_ssh_keys`で登録した鍵を指定する](https://github.com/irof/practiswing-ci/blob/34ec5b357b99a61c65f87a0d699a4cc8183b8992/.circleci/config.yml#L7-L9)。
+自動登録された鍵を削除してしまうとCircleCIの画面に鍵登録を促すボタンが出るので削除したくないが、config.ymlにfingerprintを書くのもどうなの感がある。
+
 ### badge
 
 [![CircleCI](https://circleci.com/gh/irof/practiswing-ci.svg?style=svg)](https://circleci.com/gh/irof/practiswing-ci)
