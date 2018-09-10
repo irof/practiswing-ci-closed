@@ -6,7 +6,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-              - ${GITHUB_WRITABLE_KEY}
+              - "24:f0:13:85:75:65:1e:6b:54:39:d1:cd:32:60:62:70"
       
       - checkout
 
