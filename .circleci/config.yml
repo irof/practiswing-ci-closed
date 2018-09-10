@@ -29,4 +29,6 @@ jobs:
       - run:
           command: |
               git remote -v
+              git tag circleci/{{ .BuildNum }}
+              git push origin circleci/{{ .BuildNum }}
 
