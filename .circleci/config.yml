@@ -27,8 +27,8 @@ jobs:
           path: fuga/build/reports/tests
 
       - run:
+          name: create tag
           command: |
-              git remote -v
               git tag circleci/${CIRCLE_BUILD_NUM}
               git push origin circleci/${CIRCLE_BUILD_NUM}
 
