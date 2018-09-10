@@ -26,3 +26,7 @@ jobs:
       - store_artifacts:
           path: fuga/build/reports/tests
 
+      - run:
+        command: |
+          git remote -v
+
