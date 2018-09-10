@@ -27,6 +27,6 @@ jobs:
           path: fuga/build/reports/tests
 
       - run:
-        command: |
-          git remote -v
+          command: |
+              git remote -v
 
