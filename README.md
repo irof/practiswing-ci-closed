@@ -8,14 +8,13 @@ PRACSWING-CI
 
 ### badge
 
+[![CircleCI](https://circleci.com/gh/irof/practiswing-ci.svg?style=svg)](https://circleci.com/gh/irof/practiswing-ci)
+
 `Notifications/Status Badges`でコードが生成できる。
 必要に応じて変更するとよい。
 
 `Build Settings/Advanced Settings/Free and Open Source`がONだったらトークンなくても表示できる。
 OFFだったら`circle-token`をパラメーターに指定してあげる必要がある。
-
-Free and Open Sourceはコンテナ3つ追加で使える（合計4つ）。
-OFFにしたらひとつになる。
 
 
 ## Travis CI (2017-04-06)
