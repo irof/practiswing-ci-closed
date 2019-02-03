@@ -36,8 +36,11 @@ jobs:
               git tag circleci/${CIRCLE_BUILD_NUM}
               git push origin circleci/${CIRCLE_BUILD_NUM}
   tag-build:
-    - run: echo ${CIRCLE_BUILD_NUM}
-    - run: echo ${CIRCLE_TAG}
+    docker:
+      - image: circleci/openjdk:11-jdk
+    steps:
+      - run: echo ${CIRCLE_BUILD_NUM}
+      - run: echo ${CIRCLE_TAG}
 workflows:
   version: 2
   master:
