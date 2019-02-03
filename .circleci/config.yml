@@ -35,21 +35,23 @@ jobs:
           command: |
               git tag circleci/${CIRCLE_BUILD_NUM}
               git push origin circleci/${CIRCLE_BUILD_NUM}
+  tag-build:
+    - run: echo ${CIRCLE_BUILD_NUM}
+    - run: echo ${CIRCLE_TAG}
 workflows:
   version: 2
-  workflow:
-    master:
-      jobs:
-        - build:
-            filters:
-              branches:
-                only: 'master'
-    tag:
-      jobs:
-        - build:
-            filters:
-              branches:
-                ignore: /.*/
-              tags:
-                only: /test-.+/
+  master:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: 'master'
+  tag:
+    jobs:
+      - tag-build:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /test-.+/
 
