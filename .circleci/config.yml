@@ -45,7 +45,7 @@ jobs:
     docker:
       - image: adoptopenjdk/openjdk12
     steps:
-      - run: sudo apt-get update
+      - run: apt-get update
       - checkout
       - run: ./gradlew build
 workflows:
