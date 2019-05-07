@@ -41,11 +41,22 @@ jobs:
     steps:
       - run: echo ${CIRCLE_BUILD_NUM}
       - run: echo ${CIRCLE_TAG}
+  build-adoptopenjdk-12:
+    docker:
+      - image: adoptopenjdk/openjdk12
+    steps:
+      - run: sudo apt-get update
+      - checkout
+      - run: ./gradlew build
 workflows:
   version: 2
   master:
     jobs:
       - build:
+          filters:
+            branches:
+              only: 'master'
+      - build-adoptopenjdk-12:
           filters:
             branches:
               only: 'master'
