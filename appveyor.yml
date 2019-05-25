@@ -1,6 +1,7 @@
 branches:
   only:
     - master
+skip_tags: true
 build: off
 test_script:
     - gradlew build --no-daemon
