@@ -53,3 +53,7 @@ Gradleプロジェクトだとデフォルトで`./gradlew assemble`と`./gradle
 詳細は[Gradleのドキュメント](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_tasks)を見よう。
 ちなみに`assemble`と`check`を組み合わせるタスクが`build`なので、手元で`./gradlew build`とするのと同等のことが実行されると思ってよさげ。
 
+## AppVeyor (2019-05-25)
+
+[![Build status](https://ci.appveyor.com/api/projects/status/eailckd07qhjm7q9?svg=true)](https://ci.appveyor.com/project/irof/practiswing-ci)
+
