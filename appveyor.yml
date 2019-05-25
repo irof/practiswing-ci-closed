@@ -1,3 +1,6 @@
+branches:
+  only:
+    - master
 build: off
 test_script:
     - gradlew build --no-daemon
