@@ -1,6 +1,10 @@
 PRACSWING-CI
 ============================================================
 
+## GitHub Actions (2019-10-23)
+
+![](https://github.com/irof/practiswing-ci/workflows/Java%20CI/badge.svg)
+
 ## Circle CI (2018-09-01)
 
 `.circleci/config.yml` に記述。
