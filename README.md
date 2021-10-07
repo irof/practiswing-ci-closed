@@ -12,7 +12,7 @@ PRACSWING-CI
 
 ### GitHubにpush
 
-デフォルトのSSHキーはRead Onlyになっているので、そのままだとpushできない。
+CircleCIと連携時に自動的に登録されるSSHキーはRead Onlyになっているので、そのままだとCircleCIからGitHubにpushできない。
 
 別の秘密鍵を作成し、GitHubとCircleCIにそれぞれ登録する。
 
